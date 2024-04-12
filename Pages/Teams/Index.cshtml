@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Teams";
+}
+<form method="get">
+<select  asp-for="Conf" onchange="this.form.submit()" >
+    <option>AFC</option>
+    <option>NFC</option>
+</select>
+    <select asp-items="@Model.TeamSelect" asp-for="Fav" onchange="this.form.submit()"></select>
+</form>
+
+<h2 class="text-center">Conference @Model.Conf</h2>
+<hr />
+  
+        <div class="row">
+        @foreach (Division division in Model.Divisions)
+        {
+            <div class="col-3">
+                <h4 class="text-center">@division.Name.Replace("AFC","" )</h4>
+               
+                    @foreach (Team team in division.Teams)
+                    {
+                        <div class="row m-3">
+                    <div class="@(team.TeamId == Model.Fav ? "accept-policy  card m-auto p-2 border border-dark favorite " :"accept-policy  card m-auto p-2 border border-dark")">
+                            <h5 class="card-title text-center">@team.Name</h5>
+                            <img class="card-img-bottom" src= @("/image/nfl/logo/" + team.TeamId + ".png") alt="Alternate Text" />
+                            <p class="card-text text-center">Wins @team.Win : Losses @team.Loss</p>
+                            <a class="text-center" asp-page="Details" asp-route-Team="@team.TeamId">Team Details</a>
+                            </div>
+                        </div>
+                    }
+                           
+            </div>
+         }
+        </div>
+
+
