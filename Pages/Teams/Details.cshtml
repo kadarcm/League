@@ -1,4 +1,89 @@
 ﻿@page 
 @model DetailsModel
 @{
+    ViewData["Title"] = Model.Teamobj.Name;
 }
+<div class="row">
+    <h2 class="m-auto">
+        <img src="@("/image/nfl/logo/"+Model.Team+".png")" alt="@Model.Team"  />
+        @Model.Teamobj.Name
+    </h2>
+        
+</div>
+<div class="row">
+    <div class="col-6">
+        <h5 class="text-center">Current record is</h5>
+        <table class="table table-striped p-3">
+            <thead class="thead-light"><tr>
+                <th>Stat</th>
+                <th>Value</th>
+                </tr></thead>
+                <tr>
+                    <th>Wins</th>
+                    <td>@Model.Teamobj.Win</td>
+                </tr>
+                <tr>
+                    <th>Loss</th>
+                    <td>@Model.Teamobj.Loss</td>
+                </tr>
+                <tr>
+                    <th>Tie</th>
+                    <td>@Model.Teamobj.Tie</td>
+                </tr>
+                <tr>
+                    <th>Points For</th>
+                    <td>@Model.Teamobj.PointsFor</td>
+                </tr>
+                <tr>
+                    <th>Points Against</th>
+                    <td>@Model.Teamobj.PointsAgainst</td>
+                </tr>
+    
+        </table>
+    </div>
+    <div class="col-6" 
+    style="background-image:url('@("/image/nfl/stadium/"+Model.Team+".jpg")');
+    background-repeat:no-repeat; background-position:center center;background-size:contain;">
+
+    </div>
+</div>
+<div class="row pt-3">
+    <div class="col-6">
+        <img src="@("/image/nfl/seating/"+Model.Team+".png")" alt="@Model.Teamobj.Location" />
+        <hr />
+        <h3 class="text-center">Stadium Address</h3>
+        <hr />
+        <address>
+        <p>@Model.Teamobj.Stadium Stadium</p>
+        <p>@Model.Teamobj.Address</p>
+        <p>@Model.Teamobj.City, @Model.Teamobj.State @Model.Teamobj.Zip </p>
+        </address>
+        <hr />
+        <p>Seats @Model.Teamobj.Capacity</p>
+        
+    </div>
+
+    <div class="col-6 border border-dark">
+        <h3 class="text-center">Players</h3>
+        <hr />
+        <table>
+            <thead>
+                <th>#</th>
+                <th>Name</th>
+                <th>Position</th>
+            </thead>
+        
+        @foreach (Player player in Model.Players)
+        {
+          
+            <tr>
+                <td class="p-2 text-center">@player.Number</td>
+                <td class="p-2 text-center"><a>@player.Name</a></td>
+                <td class="p-2 text-center">@player.Position</td>
+            </tr>
+            
+
+        }
+        </table>
+    </div>
+</div>
