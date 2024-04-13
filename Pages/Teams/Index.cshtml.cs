@@ -43,6 +43,7 @@ namespace League.Pages.Teams
                       select d;
 
             this.Divisions = await qry.ToListAsync();
+            ;
             foreach (Division d in this.Divisions)
             {
                 foreach (Team t in d.Teams)
