@@ -3,12 +3,17 @@
 @{
     ViewData["Title"] = "Teams";
 }
-<form method="get">
-<select  asp-for="Conf" onchange="this.form.submit()" >
-    <option>AFC</option>
-    <option>NFC</option>
-</select>
-    <select asp-items="@Model.TeamSelect" asp-for="Fav" onchange="this.form.submit()"></select>
+<form method="get" class="border border-dark p-4 m-auto" style="max-width:300px">
+    <h1>Choose your Favoret Team</h1>
+    <label asp-for="Conf">Conference</label>
+    <select asp-for="Conf" onchange="this.form.submit()" class="custom-select form-control-lg">
+        <option>AFC</option>
+        <option>NFC</option>
+    </select>
+    <label asp-for="Fav">Set Favorete</label>
+    <select asp-items="@Model.TeamSelect" asp-for="Fav" onchange="this.form.submit()" class="custom-select form-control-lg">
+        <option></option>
+    </select>
 </form>
 
 <h2 class="text-center">Conference @Model.Conf</h2>

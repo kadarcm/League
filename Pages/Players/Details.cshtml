@@ -4,3 +4,59 @@
     ViewData["Title"] = "Player Details";
 }
 <h2 class="text-center"><img src="@("/image/nfl/logo/"+Model.Player.TeamId+".png")" alt="@Model.Player.Team" />@Model.Player.Name</h2>
+
+<div>
+    <table class="table mr-auto ml-auto table-striped" style="max-width:400px">
+        <thead class="thead-dark"><tr><th colspan="2" class="text-center">Info</th></tr></thead>
+        <tr>
+            <th class="text-center border border-dark">Number</th>
+            <td class="text-center border border-dark"># @Model.Player.Number</td>
+        </tr>
+        <tr>
+            <th class="text-center border border-dark">Position</th>
+            <td class="text-center border border-dark">@Model.Player.Position</td>
+        </tr>
+        <tr>
+            <th class="text-center border border-dark">Rank</th>
+            <td class="text-center border border-dark">@Model.Player.Rank</td>
+        </tr>
+        <tr>
+            <th class="text-center border border-dark">Rating</th>
+            <td class="text-center border border-dark">@Model.Player.Rating</td>
+        </tr>
+        <tr>
+            <th class="text-center border border-dark">Experiance</th>
+            <td class="text-center border border-dark">@Model.Player.Experience</td>
+        </tr>
+        <thead class="thead-dark"><tr><th colspan="2" class="text-center">Demograpics</th></tr></thead>
+        <tr>
+            <th class="text-center border border-dark">Height</th>
+            <td class="text-center border border-dark">@Model.Player.Height</td>
+        </tr>
+        <tr>
+            <th class="text-center border border-dark">Weight</th>
+            <td class="text-center border border-dark">@Model.Player.Weight</td>
+        </tr>
+        <tr>
+            <th class="text-center border border-dark">Age</th>
+            <td class="text-center border border-dark">@Model.Player.Age</td>
+        </tr>
+        <tr>
+            <th class="text-center border border-dark">Birthday</th>
+            <td class="text-center border border-dark">@Model.Player.BirthDate.Value.Date.ToShortDateString()</td>
+        </tr>
+        <thead class="thead-dark"><tr><th colspan="2" class="text-center">Draft Info</th></tr></thead>
+        <tr>
+            <th class="text-center border border-dark">Draft Year</th>
+            <td class="text-center border border-dark">@Model.Player.DraftYear</td>
+        </tr>
+        <tr>
+            <th class="text-center border border-dark">Draft Pick</th>
+            <td class="text-center border border-dark">@Model.Player.DraftPick</td>
+        </tr>
+        <tr>
+            <th class="text-center border border-dark">Draft Round</th>
+            <td class="text-center border border-dark">@Model.Player.DraftRound</td>
+        </tr>
+    </table>
+</div>
