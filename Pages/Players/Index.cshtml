@@ -3,3 +3,40 @@
 @{
     ViewData["Title"] = "Players";
 }
+<form method="get">
+    <div class="form-group">
+        <label asp-for="Pname">Player Name? </label>
+        <input type="text" asp-for="Pname" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Tname">Team Name</label>
+        <select asp-items="Model.TeamNames" asp-for="Tname">
+            <option></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Pos">Position</label>
+        <select asp-items="Model.Postions" asp-for="Pos">
+            <option></option>
+        </select>
+    </div>
+    <input type="submit" class="btn btn-success" />
+</form>
+<div> 
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Number</th>
+       </tr>
+    
+    @foreach(Player p in Model.Players)
+    {
+    <tr>
+        <td><a asp-page="Details" asp-route-ID="@p.PlayerId">@p.Name</a></td>
+        <td>@p.Position</td>
+        <td>@p.Number</td>
+    </tr>
+    }
+</table>
+</div>
