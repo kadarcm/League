@@ -1,4 +1,6 @@
 ﻿@page
 @model DetailsModel
 @{
+    ViewData["Title"] = "Player Details";
 }
+<h2 class="text-center"><img src="@("/image/nfl/logo/"+Model.Player.TeamId+".png")" alt="@Model.Player.Team" />@Model.Player.Name</h2>
